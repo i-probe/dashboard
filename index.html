@@ -200,8 +200,8 @@
         
         // データタイプごとの閾値
         const THRESHOLDS = {
-            roughness: [9293, 13647],
-            traffic: [1122, 3199],
+            roughness: [2293, 4822],
+            traffic: [47, 404],
             decel: [5, 10]
         };
         
@@ -244,18 +244,24 @@
                 `;
             } else {
                 // バー凡例
-                legend.innerHTML = `
-                    <div class="legend-bar">
-                        <div style="flex: 1; background-color: rgba(${COLOR_SCALE[0].join(',')})"></div>
-                        <div style="flex: 1; background-color: rgba(${COLOR_SCALE[1].join(',')})"></div>
-                        <div style="flex: 1; background-color: rgba(${COLOR_SCALE[2].join(',')})"></div>
-                    </div>
-                    <div class="legend-labels">
-                        <span>Top 10%</span>
-                        <span>Top 5%</span>
-                        <span>Top 1%</span>
-                    </div>
-                `;
+                    legend.innerHTML = `
+                        <div class="legend-bar">
+                            <div style="flex: 1; background-color: rgba(${COLOR_SCALE[0].join(',')})"></div>
+                            <div style="flex: 1; background-color: rgba(${COLOR_SCALE[1].join(',')})"></div>
+                            <div style="flex: 1; background-color: rgba(${COLOR_SCALE[2].join(',')})"></div>
+                        </div>
+                        <div class="legend-labels" style="width: 100%; display: flex;">
+                            <div style="flex:1; text-align:center; margin-left:-15px;">
+                                Low<br><span style='font-size:10px;'>(0–50%)</span>
+                            </div>
+                            <div style="flex:1; text-align:center;">
+                                Medium<br><span style='font-size:10px;'>(50–80%)</span>
+                            </div>
+                            <div style="flex:1; text-align:center; margin-right:-15px;">
+                                High<br><span style='font-size:10px;'>(80–100%)</span>
+                            </div>
+                        </div>
+                    `;
             }
         }
         
